@@ -6,8 +6,8 @@
  *
  * This class was written as an early example for teaching Java with BlueJ.
  * 
- * @author  Michael Kšlling and David J. Barnes
- * @version 2016.02.29
+ * @author  Lirik Salihu
+ * @version 2024.10.07
  */
 public class Picture
 {
@@ -15,6 +15,7 @@ public class Picture
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Person person;
     private boolean drawn;
 
     /**
@@ -26,6 +27,7 @@ public class Picture
         window = new Square();
         roof = new Triangle();  
         sun = new Circle();
+        person = new Person();
         drawn = false;
     }
 
@@ -34,34 +36,41 @@ public class Picture
      */
     public void draw()
     {
-        if(!drawn) {
+        if (!drawn) {
             wall.moveHorizontal(-140);
             wall.moveVertical(20);
-            wall.changeSize(120);
+            wall.changeSize(100);
+            wall.changeColor("blue");
             wall.makeVisible();
             
-            window.changeColor("black");
             window.moveHorizontal(-120);
             window.moveVertical(40);
-            window.changeSize(40);
+            window.changeSize(30);
+            window.changeColor("white");
             window.makeVisible();
     
-            roof.changeSize(60, 180);
-            roof.moveHorizontal(20);
-            roof.moveVertical(-60);
+            roof.changeSize(50, 120);
+            roof.moveHorizontal(10);
+            roof.moveVertical(-50);
+            roof.changeColor("green");
             roof.makeVisible();
     
-            sun.changeColor("yellow");
             sun.moveHorizontal(100);
             sun.moveVertical(-40);
-            sun.changeSize(80);
+            sun.changeSize(50);
+            sun.changeColor("yellow");
             sun.makeVisible();
+            
+            person.moveHorizontal(-60);
+            person.moveVertical(10);
+            person.makeVisible();
+            
             drawn = true;
         }
     }
 
     /**
-     * Change this picture to black/white display
+     * Change this picture to black/white display.
      */
     public void setBlackAndWhite()
     {
@@ -69,16 +78,18 @@ public class Picture
         window.changeColor("white");
         roof.changeColor("black");
         sun.changeColor("black");
+        person.changeColor("black");
     }
 
     /**
-     * Change this picture to use color display
+     * Change this picture to use color display.
      */
     public void setColor()
     {
-        wall.changeColor("red");
-        window.changeColor("black");
+        wall.changeColor("blue");
+        window.changeColor("white");
         roof.changeColor("green");
         sun.changeColor("yellow");
+        person.changeColor("red");
     }
 }
